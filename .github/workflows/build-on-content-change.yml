@@ -22,17 +22,26 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick calibre pandoc zsh
+          sudo apt-get install -y imagemagick calibre pandoc zsh unzip
 
-      - name: Install FiraCode fonts
+      - name: Install FiraGO fonts
         run: |
           mkdir -p ~/.local/share/fonts
-          curl -L -o /tmp/FiraCode.zip https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip
-          if [ $? -ne 0 ]; then echo "Error downloading FiraCode.zip"; exit 1; fi
-          unzip /tmp/FiraCode.zip -d /tmp/FiraCode
-          if [ $? -ne 0 ]; then echo "Error unzipping FiraCode.zip"; exit 1; fi
-          cp /tmp/FiraCode/ttf/*.ttf ~/.local/share/fonts/
+          curl -L -o /tmp/FiraGO.zip https://fonts.google.com/download?family=FiraGO
+          if [ $? -ne 0 ]; then echo "Error downloading FiraGO.zip"; exit 1; fi
+          unzip /tmp/FiraGO.zip -d /tmp/FiraGO
+          if [ $? -ne 0 ]; then echo "Error unzipping FiraGO.zip"; exit 1; fi
+          cp /tmp/FiraGO/*.ttf ~/.local/share/fonts/
           fc-cache -f -v
+
+      - name: Verify FiraGO font installation
+        run: |
+          if fc-list | grep -qi 'FiraGO'; then
+            echo "FiraGO font is successfully installed."
+          else
+            echo "FiraGO font installation failed."
+            exit 1
+          fi
 
       - name: Set up Git
         run: |
