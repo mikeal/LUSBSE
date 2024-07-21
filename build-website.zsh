@@ -31,9 +31,6 @@ convert_md_to_html() {
         --from=markdown+footnotes+hard_line_breaks+smart+pipe_tables+fenced_code_blocks
 }
 
-# Create website directory if it does not exist
-mkdir -p website/sutras
-
 # Convert all markdown files in sutras directory to HTML
 for md_file in $(find sutras -name '*.md'); do
     html_file="website/${md_file%.md}.html"
