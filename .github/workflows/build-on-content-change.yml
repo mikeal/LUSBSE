@@ -31,10 +31,10 @@ jobs:
       - name: Run EPUB build script
         env:
           GITHUB_ACTIONS: true
-        run: ./lusbse/build-ebook.zsh
+        run: ./build-ebook.zsh
 
       - name: Run website build script
-        run: ./lusbse/build-website.zsh
+        run: ./build-website.zsh
 
       - name: Rename EPUB file
         run: |
