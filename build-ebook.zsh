@@ -77,7 +77,7 @@ FONT_FAMILY="FiraGO"
 BASE_COVER_IMAGE="./images/cover.jpg"
 
 # Create a new cover image with overlaid text
-convert $BASE_COVER_IMAGE -font Helvetica -gravity NorthEast -pointsize 24 -fill white -annotate +10+10 "$BUILD_INFO" $TMP_COVER_IMAGE
+convert $BASE_COVER_IMAGE -font fixed -gravity NorthEast -pointsize 24 -fill white -annotate +10+10 "$BUILD_INFO" $TMP_COVER_IMAGE
 
 # Concatenate the files with build info
 concat_files $OUTPUT_FILE
