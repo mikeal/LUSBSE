@@ -31,7 +31,7 @@ jobs:
           if [ $? -ne 0 ]; then echo "Error downloading FiraGO.zip"; exit 1; fi
           unzip /tmp/FiraGO.zip -d /tmp/FiraGO
           if [ $? -ne 0 ]; then echo "Error unzipping FiraGO.zip"; exit 1; fi
-          cp /tmp/FiraGO/**/*.ttf ~/.local/share/fonts/
+          find /tmp/FiraGO -type f -name "*.ttf" -exec cp {} ~/.local/share/fonts/ \;
           fc-cache -f -v
 
       - name: Verify FiraGO font installation
