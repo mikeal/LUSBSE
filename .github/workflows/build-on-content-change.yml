@@ -89,7 +89,7 @@ jobs:
         run: git rm -rf .
 
       - name: Copy website contents
-        run: cp -r ../website/* .
+        run: cp -r ./website/* .
 
       - name: Add and commit website contents, including ignored files
         run: |

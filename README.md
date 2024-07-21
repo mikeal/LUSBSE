@@ -7,3 +7,4 @@ For the benefit of all sentient beings.
 --force-build
 --force-build
 --force-build
+--force-build
