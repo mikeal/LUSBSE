@@ -9,6 +9,7 @@ on:
       - '**/*.jpg'
       - '**/*.zsh'
       - '**/*.css'
+      - 'template.html'
 
 jobs:
   build:
@@ -21,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick calibre pandoc
+          sudo apt-get install -y imagemagick calibre pandoc zsh
 
       - name: Set up Git
         run: |
@@ -31,10 +32,10 @@ jobs:
       - name: Run EPUB build script
         env:
           GITHUB_ACTIONS: true
-        run: ./build-ebook.zsh
+        run: zsh ./build-ebook.zsh
 
       - name: Run website build script
-        run: ./build-website.zsh
+        run: zsh ./build-website.zsh
 
       - name: Rename EPUB file
         run: |
