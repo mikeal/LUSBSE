@@ -50,6 +50,14 @@ jobs:
           mkdir -p website/downloads
           mv LUSBSE.epub website/downloads/latest.epub
 
+      - name: Display build.md content
+        run: cat build.md
+
+      - name: Display tmp_cover.jpg details
+        run: |
+          file tmp_cover.jpg
+          ls -lh tmp_cover.jpg
+
       - name: Commit and push changes
         run: |
           git add website/downloads/latest.epub website/sutras/**/*.html website/index.html

@@ -2,6 +2,8 @@
 
 Translations by M. C. Owens.
 
+For the benefit of all sentient beings.
+
 # Table of Contents
 
 [TOC]
