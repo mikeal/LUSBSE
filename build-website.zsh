@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # Function to convert markdown files to HTML
 convert_md_to_html() {
