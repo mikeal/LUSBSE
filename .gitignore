@@ -3,3 +3,8 @@ build.md
 LUSBSE.epub
 tmp_cover.jpg
 
+# Ignore .html files in website/ and all subdirectories
+website/**/*.html
+
+# Ignore .epub files in website/ and all subdirectories
+website/**/*.epub
