@@ -12,6 +12,7 @@ concat_files() {
 
     cat \
         ./README.md \
+        ./toc.md \
         ./sutras/manjusri.md \
         ./sutras/vajra.md \
         ./sutras/samdhinirmocana.md \
