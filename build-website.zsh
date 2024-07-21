@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+## THIS SCRIPT PRESUMES ./build-ebook.sh HAS BEEN RUN FIRST
+## without it, the build.md file will not exist and the script will fail
+
 # Function to extract the first header from a markdown file
 extract_title() {
     local input_file=$1
@@ -14,7 +17,7 @@ convert_md_to_html() {
     local output_file=$2
     local title=$(extract_title "$input_file")
 
-    if [[ "$input_file" == "README.md" ]]; then
+    if [[ "$input_file" == "README.md" || "$input_file" == "build.md" ]]; then
         local css_path="site.css"
     else
         local depth=$(echo "$output_file" | awk -F'/' '{print NF-1}')
@@ -40,5 +43,8 @@ done
 
 # Convert README.md to index.html with additional metadata
 convert_md_to_html "README.md" "website/index.html"
+
+# Convert build.md to single-page-book.html with the same special casing
+convert_md_to_html "build.md" "website/single-page-book.html"
 
 echo "Website generation complete!"
