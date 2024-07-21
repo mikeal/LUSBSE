@@ -48,6 +48,10 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
+      - name: Show available fonts for imagemagick
+        run: |
+          convert -list font
+
       - name: Run EPUB build script
         env:
           GITHUB_ACTIONS: true
