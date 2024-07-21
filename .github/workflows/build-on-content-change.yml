@@ -69,6 +69,12 @@ jobs:
           file tmp_cover.jpg
           ls -lh tmp_cover.jpg
 
+      - name: Upload cover image artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: tmp-cover-image
+          path: tmp_cover.jpg
+
       - name: Commit and push changes
         run: |
           git add website/downloads/latest.epub website/sutras/**/*.html website/index.html
