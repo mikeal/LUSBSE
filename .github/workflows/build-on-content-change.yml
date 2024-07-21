@@ -1,0 +1,50 @@
+name: Build EBook and Website
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.md'
+      - '**/*.jpg'
+      - '**/*.zsh'
+      - '**/*.css'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick calibre pandoc
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Run EPUB build script
+        env:
+          GITHUB_ACTIONS: true
+        run: ./lusbse/build-ebook.zsh
+
+      - name: Run website build script
+        run: ./lusbse/build-website.zsh
+
+      - name: Rename EPUB file
+        run: |
+          mkdir -p website/downloads
+          mv LUSBSE.epub website/downloads/latest.epub
+
+      - name: Commit and push changes
+        run: |
+          git add website/downloads/latest.epub website/sutras/**/*.html website/index.html
+          git commit -m "Update EPUB and HTML files"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
