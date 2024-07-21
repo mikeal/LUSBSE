@@ -27,11 +27,11 @@ jobs:
       - name: Install FiraGO fonts
         run: |
           mkdir -p ~/.local/share/fonts
-          curl -L -o /tmp/FiraGO.zip https://fonts.google.com/download?family=FiraGO
+          curl -L -o /tmp/FiraGO.zip https://bboxtype.com/downloads/FiraGO/Download_Folder_FiraGO_1001.zip
           if [ $? -ne 0 ]; then echo "Error downloading FiraGO.zip"; exit 1; fi
           unzip /tmp/FiraGO.zip -d /tmp/FiraGO
           if [ $? -ne 0 ]; then echo "Error unzipping FiraGO.zip"; exit 1; fi
-          cp /tmp/FiraGO/*.ttf ~/.local/share/fonts/
+          cp /tmp/FiraGO/**/*.ttf ~/.local/share/fonts/
           fc-cache -f -v
 
       - name: Verify FiraGO font installation
