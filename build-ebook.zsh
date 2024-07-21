@@ -14,15 +14,15 @@ concat_files() {
         ./README.md \
         ./sutras/manjusri.md \
         ./sutras/vajra.md \
-        ./sutras/Saṃdhinirmocana.md \
-        ./sutras/Saṃdhinirmocana/01.md \
-        ./sutras/Saṃdhinirmocana/02.md \
-        ./sutras/Saṃdhinirmocana/03.md \
-        ./sutras/Saṃdhinirmocana/04.md \
-        ./sutras/Saṃdhinirmocana/05.md \
-        ./sutras/Saṃdhinirmocana/06.md \
-        ./sutras/Saṃdhinirmocana/07.md \
-        ./sutras/Saṃdhinirmocana/08.md \
+        ./sutras/samdhinirmocana.md \
+        ./sutras/samdhinirmocana/01.md \
+        ./sutras/samdhinirmocana/02.md \
+        ./sutras/samdhinirmocana/03.md \
+        ./sutras/samdhinirmocana/04.md \
+        ./sutras/samdhinirmocana/05.md \
+        ./sutras/samdhinirmocana/06.md \
+        ./sutras/samdhinirmocana/07.md \
+        ./sutras/samdhinirmocana/08.md \
         ./sutras/vimalakirti.md \
         ./sutras/vimalakirti/01.md \
         ./sutras/vimalakirti/02.md \
